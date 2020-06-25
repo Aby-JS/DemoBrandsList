@@ -39,7 +39,7 @@ export default {
         }
 
         if (rating < 1 && rating > 0) {
-          let x = parseInt(rating * 10);
+          let x = parseInt(rating * 10, 10);
           rating = 0;
           return `perc-${x}`;
         }
@@ -82,49 +82,11 @@ export default {
   left: 0;
 }
 
-.perc-1:after {
-  left: 0.1rem;
-  text-indent: -0.1rem;
-}
-
-.perc-2:after {
-  left: 0.2rem;
-  text-indent: -0.2rem;
-}
-
-.perc-3:after {
-  left: 0.3rem;
-  text-indent: -0.3rem;
-}
-
-.perc-4:after {
-  left: 0.4rem;
-  text-indent: -0.4rem;
-}
-
-.perc-5:after {
-  left: 0.5rem;
-  text-indent: -0.5rem;
-}
-
-.perc-6:after {
-  left: 0.6rem;
-  text-indent: -0.6rem;
-}
-
-.perc-7:after {
-  left: 0.7rem;
-  text-indent: -0.7rem;
-}
-
-.perc-8:after {
-  left: 0.8rem;
-  text-indent: -0.8rem;
-}
-
-.perc-9:after {
-  left: 0.9rem;
-  text-indent: -0.9rem;
+@for $i from 1 through 9 {
+  .perc-#{$i}:after {
+    left: 0.1rem * $i;
+    text-indent: -0.1rem * $i;
+  }
 }
 
 .full-start:after {
